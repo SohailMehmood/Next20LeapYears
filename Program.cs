@@ -2,18 +2,21 @@
 
 namespace Next20LeapYears
 {
-    class LeapYear
+    public static class LeapYear
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
 
-            int year;
             Console.WriteLine("Enter the year: ");
             int number = int.Parse(Console.ReadLine());
             int i = 0;
             while (i < 20)
             {
-                year = number + 4 - number % 4;
+                int year = number + 4 - number % 4;
                 if (year % 100 == 0 && year % 400 != 0)
                 {
                     year += 4;
