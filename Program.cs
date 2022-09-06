@@ -6,7 +6,7 @@ namespace Next20LeapYears
     {
         public static void Main(string[] args)
         {
-            if (args is null)
+            if (args == null)
             {
                 throw new ArgumentNullException(nameof(args));
             }
@@ -23,7 +23,7 @@ namespace Next20LeapYears
                 }
 
                 number = year;
-                Console.WriteLine("Leap Year: " + year);
+                Console.WriteLine($"Leap Year: {year}");
                 i++;
 
             }
