@@ -12,9 +12,14 @@ namespace Next20LeapYears
             }
 
             Console.WriteLine("Enter the year: ");
-            int number = int.Parse(Console.ReadLine());
-            int i = 0;
-            while (i < 20)
+            var input = Console.ReadLine() ?? string.Empty;
+            bool hasParsed = int.TryParse(input, out int number);
+            if (!hasParsed)
+            {
+                Console.WriteLine("The entered value is not a valid year. Setting year to 0.");
+            }
+            int current = 0;
+            while (current < 20)
             {
                 int year = number + 4 - number % 4;
                 if (year % 100 == 0 && year % 400 != 0)
@@ -24,7 +29,7 @@ namespace Next20LeapYears
 
                 number = year;
                 Console.WriteLine($"Leap Year: {year}");
-                i++;
+                current++;
 
             }
         }
